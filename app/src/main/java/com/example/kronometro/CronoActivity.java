@@ -12,8 +12,9 @@ import android.widget.TextView;
 
 public class CronoActivity extends AppCompatActivity {
 
-    public TextView txtViewTime;
-    public Button btnStart;
+    private TextView txtViewTime;
+    private Button btnStart;
+    private boolean exe, inExe;
     int sec = 0, min = 0, hour = 0;
     Handler handler = new Handler();
     Runnable runnable;
@@ -24,10 +25,38 @@ public class CronoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crono);
+        if(savedInstanceState != null){
+            sec = savedInstanceState.getInt("sec");
+            min = savedInstanceState.getInt("min");
+            hour = savedInstanceState.getInt("hour");
+            exe = savedInstanceState.getBoolean("exe");
+        }
+    }
+    @Override
+    protected  void onSaveInstanceState(Bundle savedIntanceState){
+        super.onSaveInstanceState(savedIntanceState);
+        savedIntanceState.putInt("sec", sec);
+        savedIntanceState.putInt("min", min);
+        savedIntanceState.putInt("hour", hour);
+        savedIntanceState.putBoolean("exe", exe);
+    }
+    @Override
+    protected  void onPause(){
+        super.onPause();
+        inExe = exe;
+        exe = false;
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        if(inExe){
+            exe = true;
+        }
     }
 
     //button start
     public void start(View view) {
+        exe = true;
         if(aux==0){
             aux=1;
 
@@ -60,6 +89,7 @@ public class CronoActivity extends AppCompatActivity {
 
     //stop
     public void stop() {
+        exe = false;
         if(aux==1){
             btnStart.setText(R.string.resume);
             btnStart.setBackgroundColor(getResources().getColor(R.color.green));
@@ -72,6 +102,7 @@ public class CronoActivity extends AppCompatActivity {
     //button reset
     public void reset(View view) {
         handler.removeCallbacks(runnable);
+        exe = false;
         sec = 0;
         min = 0;
         hour = 0;
