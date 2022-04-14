@@ -10,7 +10,7 @@
         android:id="@+id/btnCro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="4dp"
         android:background="#9C4242"
         android:backgroundTint="#973F3F"
         android:onClick="showCrono"

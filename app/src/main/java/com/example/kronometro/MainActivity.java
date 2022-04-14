@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //buton temporizador
     public void showTemp(View view){
-        Toast.makeText(this, "Funcionalidade não disponivel", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, TempActivity.class);
+        startActivity(intent);
     }
 }

@@ -7,27 +7,27 @@
     tools:context=".CronoActivity">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnStart"
+        android:id="@+id/btnStartCrono"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:background="@color/green"
-        android:onClick="start"
+        android:onClick="clickStart"
         android:text="@string/start"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/btnReset"
+        android:textColor="#424242"
+        app:layout_constraintBottom_toTopOf="@+id/btnResetCrono"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnReset"
+        android:id="@+id/btnResetCrono"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/green"
-        android:textColor="@color/white"
-        android:onClick="reset"
+        android:onClick="clickReset"
         android:text="@string/reset"
+        android:textColor="#424242"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

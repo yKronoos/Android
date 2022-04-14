@@ -2,10 +2,9 @@ package com.example.kronometro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -31,6 +30,17 @@ public class CronoActivity extends AppCompatActivity {
             hour = savedInstanceState.getInt("hour");
             exe = savedInstanceState.getBoolean("exe");
         }
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id == android.R.id.home){
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
     @Override
     protected  void onSaveInstanceState(Bundle savedIntanceState){
@@ -55,14 +65,14 @@ public class CronoActivity extends AppCompatActivity {
     }
 
     //button start
-    public void start(View view) {
+    public void clickStart(View view) {
         exe = true;
         if(aux==0){
             aux=1;
 
             txtViewTime = findViewById(R.id.txtViewTime);
 
-            btnStart = findViewById(R.id.btnStart);
+            btnStart = findViewById(R.id.btnStartCrono);
             btnStart.setText(R.string.stop);
             btnStart.setBackgroundColor(getResources().getColor(R.color.red));
 
@@ -100,12 +110,13 @@ public class CronoActivity extends AppCompatActivity {
     }
 
     //button reset
-    public void reset(View view) {
+    public void clickReset(View view) {
         handler.removeCallbacks(runnable);
         exe = false;
         sec = 0;
         min = 0;
         hour = 0;
         txtViewTime.setText("0:00:00");
+        btnStart.setText(R.string.start);
     }
 }
