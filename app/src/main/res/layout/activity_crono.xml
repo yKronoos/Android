@@ -6,38 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".CronoActivity">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnStart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="#831B1B"
-        android:backgroundTint="#B13E3E"
+        android:layout_marginBottom="4dp"
+        android:background="@color/green"
         android:onClick="start"
         android:text="@string/start"
-        app:layout_constraintBottom_toTopOf="@+id/btnStop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnStop"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:background="#BA2323"
-        android:onClick="stop"
-        android:text="@string/stop"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/btnReset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnReset"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#D80C0C"
+        android:background="@color/green"
+        android:textColor="@color/white"
         android:onClick="reset"
         android:text="@string/reset"
         app:layout_constraintBottom_toBottomOf="parent"
